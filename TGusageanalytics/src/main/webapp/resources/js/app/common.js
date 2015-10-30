@@ -133,6 +133,24 @@ function generateDataPageBarChart(responseObj){
     });
 }
 
+function generateCallPageBarChart(responseObj){
+	//alert(JSON.stringify(responseObj));
+	$('#morris-bar-chart-dataVol').empty();
+	var dataObj = responseObj.dataListByDate;
+	//alert(JSON.stringify(dataObj));
+    Morris.Bar({
+        element: 'morris-bar-chart-dataVol',
+        data: dataObj,
+        xkey: 'date',
+        ykeys: ['duration'],
+        labels: ['Call Duration'],
+        barRatio: 0.4,
+        xLabelAngle: 35,
+        hideHover: 'true',
+        resize: true
+    });
+}
+
 var getBytesWithUnit = function( bytes ){
 	//alert(bytes);
 	if( isNaN( bytes ) ){ return; }
