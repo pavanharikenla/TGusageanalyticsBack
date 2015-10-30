@@ -78,3 +78,42 @@ app.controller('homecontroller', function($scope,$http) {
     	    });
     	};
 });
+function closeHourlyChart(){
+	$('#morris-bar-chart-dialyVol').empty();
+	$('#morris-bar-chart-dialyVol').css('min-height','10px');
+	$('#morris-bar-chart-dialyVol-panel').removeClass('panel');
+	$('#morris-bar-chart-dialyVol-panel-head').css("display","none");
+	$('#hourlySpanTitle').html('');
+}
+
+function getDataUsageByDate(dateObj){
+	var urlLnk = contextpath+"/getDataByDate?dateVal="+dateObj;
+	$.ajax({url: urlLnk, success: function(result){
+        var jsonObjResp = JSON.parse(result);
+        var hourlyList = jsonObjResp.hourlyListByDate;
+        generateDataPageHourlyChart(hourlyList);
+        $('#morris-bar-chart-dialyVol-panel').addClass('panel');
+    	$('#morris-bar-chart-dialyVol-panel-head').css("display","");
+    	$('#hourlySpanTitle').html(dateObj);
+    }});
+}
+
+function generateDataPageHourlyChart(responseObj){
+	//alert(JSON.stringify(responseObj));
+	$('#morris-bar-chart-dialyVol').empty();
+	$('#morris-bar-chart-dialyVol').css('min-height','250px');
+	
+//	var dataObj = responseObj.dataListByDate;
+	//alert(JSON.stringify(dataObj));
+    Morris.Bar({
+        element: 'morris-bar-chart-dialyVol',
+        data: responseObj,
+        xkey: 'time',
+        ykeys: ['bytes'],
+        labels: ['Data Used (byes)'],
+        barRatio: 0.4,
+        xLabelAngle: 35,
+        hideHover: 'true',
+        resize: true
+    });
+}

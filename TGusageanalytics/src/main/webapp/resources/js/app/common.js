@@ -129,7 +129,7 @@ function generateDataPageBarChart(responseObj){
     }).on('click', function(i, row){
     	  console.log(i, row);
     	  var ddDateObj = row;
-    	  alert(ddDateObj.date);
+    	  getDataUsageByDate(ddDateObj.date);
     });
 }
 

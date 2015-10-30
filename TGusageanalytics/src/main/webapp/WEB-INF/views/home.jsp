@@ -173,7 +173,7 @@
                         <a href="#" onclick="requestHome();"><i class="fa fa-fw fa-rss"></i>&nbsp;Data Usage</a>
                     </li>
                     <li>
-                        <a href="#" onclick="requestCharts();"><i class="fa fa-fw fa-bar-chart-o"></i>&nbsp;Call Usage</a>
+                        <a href="#" onclick="requestCharts();"><i class="fa fa-fw fa-phone-square"></i>&nbsp;Call Usage</a>
                     </li>
                     <li>
                     	<a href="#" onclick="requestSearch();"><i class="fa fa-fw fa-exclamation-triangle"></i>&nbsp;Recommendations</a>
@@ -372,6 +372,19 @@
 										</div>
 									</div>
 								</div>
+								<div class="col-lg-12">
+									<div class="panel-default" id="morris-bar-chart-dialyVol-panel">
+									<div class="panel-heading" id="morris-bar-chart-dialyVol-panel-head" style="display: none;">
+										<h3 class="panel-title">
+											<i class="fa fa-bar-chart-o fa-fw"></i><span id="hourlySpanTitle"></span>
+											<i class="fa fa-times fa-fw fr" onclick="closeHourlyChart();" style="cursor:pointer;"></i>
+										</h3>
+									</div>
+										<div>
+											<div id="morris-bar-chart-dialyVol"></div>
+										</div>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -498,6 +511,7 @@
 
 </html>
 <style>
+.fr{float: right;}
 .navbar-right{margin-top:20px;color:white !important;}
 #morris-bar-chart-dataVol{min-height: 250px;}
 #prevNav{cursor: pointer;}

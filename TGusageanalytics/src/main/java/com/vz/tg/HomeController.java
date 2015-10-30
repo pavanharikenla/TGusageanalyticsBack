@@ -309,6 +309,76 @@ public class HomeController {
 		return finalObject.toString();
 	}
 	
+	@RequestMapping(value = "/getDataByDate", method = RequestMethod.GET)
+	@ResponseBody
+	public String getDataByDate(@RequestParam("dateVal") String dateVal) {
+		JSONObject finalRes = new JSONObject();
+		Collection<JSONObject> hourlyList = new ArrayList<JSONObject>();
+		
+		JSONObject timeObj = new JSONObject();
+		timeObj.put("time", "12AM");
+		timeObj.put("bytes", "123456");
+		hourlyList.add(timeObj);
+		
+		JSONObject timeObj1 = new JSONObject();
+		timeObj1.put("time", "1AM");
+		timeObj1.put("bytes", "12356");
+		hourlyList.add(timeObj1);
+
+		JSONObject timeObj2 = new JSONObject();
+		timeObj2.put("time", "2AM");
+		timeObj2.put("bytes", "23456");
+		hourlyList.add(timeObj2);
+		
+		JSONObject timeObj3 = new JSONObject();
+		timeObj3.put("time", "3AM");
+		timeObj3.put("bytes", "12356");
+		hourlyList.add(timeObj3);
+		
+		JSONObject timeObj4 = new JSONObject();
+		timeObj4.put("time", "4AM");
+		timeObj4.put("bytes", "3456");
+		hourlyList.add(timeObj4);
+		
+		JSONObject timeObj5 = new JSONObject();
+		timeObj5.put("time", "5AM");
+		timeObj5.put("bytes", "1111");
+		hourlyList.add(timeObj5);
+		
+		JSONObject timeObj6 = new JSONObject();
+		timeObj6.put("time", "6AM");
+		timeObj6.put("bytes", "12345");
+		hourlyList.add(timeObj6);
+		
+		JSONObject timeObj7 = new JSONObject();
+		timeObj7.put("time", "7AM");
+		timeObj7.put("bytes", "123456");
+		hourlyList.add(timeObj7);
+		
+		JSONObject timeObj8 = new JSONObject();
+		timeObj8.put("time", "8AM");
+		timeObj8.put("bytes", "1256");
+		hourlyList.add(timeObj8);
+		
+		JSONObject timeObj9 = new JSONObject();
+		timeObj9.put("time", "9AM");
+		timeObj9.put("bytes", "123456");
+		hourlyList.add(timeObj9);
+		
+		JSONObject timeObj10 = new JSONObject();
+		timeObj10.put("time", "10AM");
+		timeObj10.put("bytes", "1456");
+		hourlyList.add(timeObj10);
+		
+		JSONObject timeObj11 = new JSONObject();
+		timeObj11.put("time", "11AM");
+		timeObj11.put("bytes", "12456");
+		hourlyList.add(timeObj11);
+		
+		finalRes.put("hourlyListByDate", hourlyList);
+		
+		return finalRes.toString();
+	}
 	public Collection<JSONObject> getTweetResponse(String tweetType,int startRow,int endRow){
 		SolrQuery query = new SolrQuery("sentimentScore:"+tweetType);
 		query.setStart(startRow);
