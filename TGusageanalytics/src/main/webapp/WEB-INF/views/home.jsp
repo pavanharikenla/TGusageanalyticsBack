@@ -347,11 +347,12 @@
 									<div class="table-responsive">
 										<table class="table table-bordered table-hover table-striped"
 											id="tweetTable">
-											<!-- <thead>
+											<thead>
 												<tr>
-													<th>Tweets</th>
+													<th>Date</th>
+													<th>Usage</th>
 												</tr>
-											</thead> -->
+											</thead>
 											<tbody>
 												<c:forEach var="dateObj" items="${model.dataListRecords}"
 													varStatus="i">
@@ -392,16 +393,14 @@
 				<!-- /.row -->
 
                 <div class="row">
-                    <div class="col-lg-4">
+                    <div class="col-lg-6">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-long-arrow-right fa-fw"></i> Customer Chart</h3>
+                                <h3 class="panel-title"><i class="fa fa-long-arrow-right fa-fw"></i>Usage by App</h3>
                             </div>
                             <div class="panel-body">
                                 <div id="morris-donut-chart-tg"></div>
-                                <!-- <div class="text-right">
-                                    <a href="#">View Details <i class="fa fa-arrow-circle-right"></i></a>
-                                </div> -->
+                                
                             </div>
                         </div>
                     </div>
@@ -513,7 +512,8 @@
 <style>
 .fr{float: right;}
 .navbar-right{margin-top:20px;color:white !important;}
-#morris-bar-chart-dataVol{min-height: 250px;}
+#morris-bar-chart-dataVol{min-height: 290px;}
+#morris-donut-chart-tg{min-height:400px;}
 #prevNav{cursor: pointer;}
 #nextNav{cursor: pointer;}
 .huge {
@@ -524,6 +524,7 @@
 <% HomeBean home = (HomeBean)request.getAttribute("model"); %>
 var dataUsage = <%= home.getDataUsageList()%>;
 generateDataPageBarChart(dataUsage);
-// generateDonut(ageGroupList);
+var appUsage = <%= home.getAppUsageList()%>;
+generateDonut(appUsage);
 // generateAreaChart(categoryData);
 </script>

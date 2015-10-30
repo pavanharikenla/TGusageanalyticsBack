@@ -5,11 +5,14 @@
 
 
 function generateDonut(resObject){
-	var agelist = resObject.agegroup;
-	//alert(JSON.stringify(agelist));
+	var appList = resObject.appUsageList;
+	//var temp = '[{"label":"whatsapp","value":1435676},{"label":"whatsapp1","value":143566}]';
+	//var appList = JSON.parse(temp);
+	//alert(JSON.stringify(appList));
 	Morris.Donut({
 	        element: 'morris-donut-chart-tg',
-	        data: agelist,
+	        data: appList,
+	        colors:["#9CC4E4", "#3A89C9"],
 	        resize: true
 	    });
 }

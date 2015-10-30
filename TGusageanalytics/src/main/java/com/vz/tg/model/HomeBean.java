@@ -17,7 +17,16 @@ public class HomeBean {
 	
 	private TreeMap<String,Long> dataListRecords = new TreeMap<String,Long>();
 	private JSONObject dataUsageList;
+	private JSONObject appUsageList;
 	
+	public JSONObject getAppUsageList() {
+		return appUsageList;
+	}
+
+	public void setAppUsageList(JSONObject appUsageList) {
+		this.appUsageList = appUsageList;
+	}
+
 	public JSONObject getDataUsageList() {
 		return dataUsageList;
 	}

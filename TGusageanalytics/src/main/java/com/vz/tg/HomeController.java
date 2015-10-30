@@ -112,6 +112,42 @@ public class HomeController {
 			bean.setDataListRecords(dataListObj);
 			bean.setDataUsageList(finalObj);
 			
+			//usage by application...
+			Collection<JSONObject> appList = new ArrayList<JSONObject>();
+			
+			JSONObject applicaationObj = new JSONObject();
+			applicaationObj.put("label", "whatsapp");
+			applicaationObj.put("value", 1435262);
+			appList.add(applicaationObj);
+			
+			JSONObject applicaationObj0 = new JSONObject();
+			applicaationObj0.put("label", "facebook");
+			applicaationObj0.put("value", 145695);
+			appList.add(applicaationObj0);
+			
+			JSONObject applicaationObj1 = new JSONObject();
+			applicaationObj1.put("label", "twitter");
+			applicaationObj1.put("value", 123546);
+			appList.add(applicaationObj1);
+			
+			JSONObject applicaationObj2 = new JSONObject();
+			applicaationObj2.put("label", "www.verizon.com");
+			applicaationObj2.put("value", 12312);
+			appList.add(applicaationObj2);
+			
+			JSONObject applicaationObj3 = new JSONObject();
+			applicaationObj3.put("label", "amazon");
+			applicaationObj3.put("value", 9540);
+			appList.add(applicaationObj3);
+			
+			JSONObject appUsageObj = new JSONObject();
+			appUsageObj.put("appUsageList", appList);
+			bean.setAppUsageList(appUsageObj);
+			
+			
+			
+			
+			
 			/*QueryResponse response = homeservice.getServiceResponse(query);
 			if(response!=null){
 				 SolrDocumentList responseList = response.getResults();
