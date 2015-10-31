@@ -1,4 +1,4 @@
 applications:
-- name: topgunsanalytics
+- name: tgusageanalytics
   instances: 1
-  path: ./target/tg-1.0.0-BUILD-SNAPSHOT.war
+  path: ./target/TGusageanalytics-0.0.1-SNAPSHOT.war
